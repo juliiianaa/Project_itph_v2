@@ -1,10 +1,7 @@
-/**
- *
- * A servlet which receive the data from the ajax call in sendData.js (function called performAjaxSend)
- * 
- * 
- * @author Juliana Goh & Negar Ahmadifard
- */
+ /**
+     * Uitleg class
+     * @author: Juliana Goh & Negar Ahmadifard
+     */
 
 
 package nl.project.jn.servlets;

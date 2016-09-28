@@ -1,11 +1,7 @@
-/**
- *
- * Class which is used for anything that has to do with the database
- * Make connection, retrieve data from the database, disconnects the database when needed
- * 
- * @author Juliana Goh & Negar Ahmadifard
- */
-
+ /**
+     * Uitleg class
+     * @author: Juliana Goh & Negar Ahmadifard
+     */
 package nl.project.jn.servlets;
 
 import java.io.IOException;
