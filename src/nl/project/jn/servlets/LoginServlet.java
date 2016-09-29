@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
 //                Sends the data to the LoginUser method in MysqlDatabaseConnector class to check if the user already is registrated
                 rd.LoginUser(username, password, user);
                 
+                System.out.println(user.getUserAccess());
                 
                 if(user.getUserAccess() == "yes"){
                     System.out.println("yaaayyy admin");

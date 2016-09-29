@@ -34,14 +34,15 @@ function performAjaxSend() {
     $.ajax({
         url:'../LoginServlet',
         data:{user:usernameLogin, passwordUser:passwordLogin},
-        type:'post',
+        type:'POST',
         cache:false,
         success:function(data){
            alert(data);
            window.location.replace("http://localhost:8080/Project_J_N" + data);
         },
-        error:function(){
-          alert('error');
+        error:function(result){
+        	alert("er gaat alsnog iets mis")
+        	alert(result.status + ' ' + result.statusText);
         }
      }
 );
