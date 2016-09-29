@@ -21,6 +21,11 @@ import nl.project.jn.database.User;
 public class AdminServlet extends HttpServlet {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
