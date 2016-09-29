@@ -16,21 +16,35 @@ function performAjaxSend() {
     alert(usernameLogin + ", " + passwordLogin);
 
 //    Ajax call, where the parameters are send to the Servlet
+//    $.ajax({
+//        type: "POST",
+//        url: '../LoginServlet',
+//        cache: false,
+//        contentType: false,
+//        dataType: "text",
+//        data: {
+//            user:usernameLogin,
+//            passwordUser:passwordLogin
+//        },
+//        success: function (data) {
+//            alert('yay');
+//        }
+//    });
+    
     $.ajax({
-        url: '../LoginServlet',
-        data:  {
-	          user:usernameLogin,
-	          passwordUser:passwordLogin
-	      },
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        success: function (data) {
-        	alert("xxxx: " + data);
-        	window.location.replace("http://localhost:8080/Project_J_N" + data);
-            
+        url:'../LoginServlet',
+        data:{user:usernameLogin, passwordUser:passwordLogin},
+        type:'post',
+        cache:false,
+        success:function(data){
+           alert(data);
+           window.location.replace("http://localhost:8080/Project_J_N" + data);
+        },
+        error:function(){
+          alert('error');
         }
-    });
+     }
+);
 
 }
 
