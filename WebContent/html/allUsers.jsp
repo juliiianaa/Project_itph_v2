@@ -48,9 +48,9 @@
                 <c:if test="${not empty requestScope.usersList}">
                     <c:forEach items="${requestScope.usersList}" var="user">
                         <tr>
-                            <td>${user.username }</td>
                             <td>${user.firstName }</td>
                             <td>${user.lastName }</td>
+                            <td>${user.username }</td>
                             <td>${user.emailAdress }</td>
                             <td>${user.userAccess }</td>
                         </tr>

@@ -44,6 +44,8 @@ public class LoginServlet extends HttpServlet {
         System.out.println(username + " " + password);
 
         User user = new User();
+        
+        String href = null;
 
         try{
 //            connects with the database
@@ -59,12 +61,22 @@ public class LoginServlet extends HttpServlet {
                 rd.LoginUser(username, password, user);
                 
                 
-                if(user.getUserAccess().equals("yes")){
+                if(user.getUserAccess() == "yes"){
                     System.out.println("yaaayyy admin");
-                    RequestDispatcher view = request.getRequestDispatcher("/AdminServlet");
-                    view.forward(request, response);
+//                    RequestDispatcher view = request.getRequestDispatcher("/AdminServlet");
+//                    view.forward(request, response);
+                    
+                    //Sends the generated script to the website page
+                    href = "/AdminServlet";
+                }else{
+                	 //Sends the generated script to the website page
+                	href = "/html/user.jsp";
+                    
                 }
             }    
+            
+            response.getWriter().print(href);
+            
 //            disconnects the database
             MysqlDatabaseConnector.disconnectDB();
 

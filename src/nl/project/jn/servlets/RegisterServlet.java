@@ -1,9 +1,3 @@
- /**
-     * Uitleg class
-     * @author: Juliana Goh & Negar Ahmadifard
-     */
-
-
 package nl.project.jn.servlets;
 
 import java.io.IOException;
@@ -16,12 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import nl.project.jn.database.MysqlDatabaseConnector;
 import nl.project.jn.database.UpdateMysqlTable;
-import nl.project.jn.database.User;
+
+/**
+ * @author: Juliana Goh & Negar Ahmadifard
+ */
 
 public class RegisterServlet extends HttpServlet {
 
-    
-    /**
+   
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request

@@ -17,17 +17,18 @@ function performAjaxSend() {
 
 //    Ajax call, where the parameters are send to the Servlet
     $.ajax({
-        type: "POST",
         url: '../LoginServlet',
-        cache: false,
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
-        dataType: "json",
-        data: {
-            user:usernameLogin,
-            passwordUser:passwordLogin
-        },
+        data:  {
+	          user:usernameLogin,
+	          passwordUser:passwordLogin
+	      },
+        processData: false,
+        contentType: false,
+        type: 'POST',
         success: function (data) {
-            alert('yay');
+        	alert("xxxx: " + data);
+        	window.location.replace("http://localhost:8080/Project_J_N" + data);
+            
         }
     });
 
