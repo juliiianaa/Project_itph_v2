@@ -62,16 +62,18 @@ public class LoginServlet extends HttpServlet {
                 
                 System.out.println(user.getUserAccess());
                 
-                if(user.getUserAccess() == "yes"){
+                if(user.getUserAccess().equals("yes")){
                     System.out.println("yaaayyy admin");
 //                    RequestDispatcher view = request.getRequestDispatcher("/AdminServlet");
 //                    view.forward(request, response);
                     
                     //Sends the generated script to the website page
                     href = "/AdminServlet";
-                }else{
+                   
+                } else{
                 	 //Sends the generated script to the website page
                 	href = "/html/user.jsp";
+                	
                     
                 }
             }    

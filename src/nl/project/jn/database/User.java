@@ -5,7 +5,8 @@
 package nl.project.jn.database;
 
 public class User {
-    private String username;
+    public static final String getUserAccess = null;
+	private String username;
     private String firstName;
     private String lastName;
     private String emailAdress;
@@ -22,7 +23,7 @@ public class User {
      public User(String username, String firstName, String lastName, String emailAdress) {
         this.username = username;
         this.firstName = firstName;
-	this.lastName = lastName;
+        this.lastName = lastName;
         this.emailAdress = emailAdress;
     }
 
