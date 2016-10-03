@@ -8,10 +8,18 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ *
+ * @author juulz
+ */
 public class UpdateMysqlTable extends MysqlDatabaseConnector{
     
-    
-        public void updateForgetPss(String username) throws SQLException{
+    /**
+     *
+     * @param username
+     * @throws SQLException
+     */
+    public void updateForgetPss(String username) throws SQLException{
         
         System.out.println("Moet nog");
         
@@ -29,7 +37,17 @@ public class UpdateMysqlTable extends MysqlDatabaseConnector{
 //        }
     }
         
-        public void RegisterUser(String username, String name, String lastName, String email, String password) 
+    /**
+     *
+     * @param username
+     * @param name
+     * @param lastName
+     * @param email
+     * @param password
+     * @throws IOException
+     * @throws SQLException
+     */
+    public void RegisterUser(String username, String name, String lastName, String email, String password) 
                 throws IOException, SQLException {
             
             

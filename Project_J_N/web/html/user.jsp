@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+    
+    <jsp:useBean id="username" scope="nl.project.jn.database.User" typeSpec/>
+        
+        
+    </jsp:useBean>
+    
+    <label> Hallo, ${requestScope.user.username}</label>
+    
+    <!--<input type="submit" value="Log uit" name="logout" id="login" class="logoutButton"/>-->   
 
 	<h1>USER USER</h1>
 

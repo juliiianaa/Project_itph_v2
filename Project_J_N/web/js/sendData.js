@@ -38,10 +38,12 @@ function performAjaxSend() {
         cache:false,
         success:function(data){
            alert(data);
-           window.location.replace("http://localhost:8080/Project_J_N" + data);
+           
+           
+//           window.location.replace(data);
         },
         error:function(result){
-        	alert("er gaat alsnog iets mis")
+        	alert("er gaat alsnog iets mis");
         	alert(result.status + ' ' + result.statusText);
         }
      }

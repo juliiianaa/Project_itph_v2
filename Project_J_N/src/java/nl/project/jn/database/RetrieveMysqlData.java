@@ -15,6 +15,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author juulz
+ */
 public class RetrieveMysqlData extends MysqlDatabaseConnector{
     
      /**
@@ -31,6 +35,7 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
 
         //SQL query for retrieving data from "users_information" table to log in user
         String sqlStatement = "SELECT * FROM users_information WHERE username=? AND password=md5(?)";
+        
         
        System.out.println(username + "," + password);
         
@@ -59,8 +64,11 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
        
     }
     
-        
-        
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public static List<User> getAllUser() throws SQLException{
         
         //SQL query for retrieving data from "users_information" table to log in user

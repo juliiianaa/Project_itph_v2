@@ -11,11 +11,18 @@ package nl.project.jn.database;
 import java.io.IOException;
 import java.sql.*;
 
-
+/**
+ *
+ * @author juulz
+ */
 public class MysqlDatabaseConnector {
     
     private final static String USERDB = "root";
     private final static String USERPW = "java2016" ;
+
+    /**
+     *
+     */
     protected static Connection con;
     
     /**

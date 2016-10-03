@@ -4,13 +4,21 @@
      */
 package nl.project.jn.database;
 
-public class User {
-    public static final String getUserAccess = null;
-	private String username;
-    private String firstName;
-    private String lastName;
-    private String emailAdress;
-    private String userAccess;
+/**
+ *
+ * @author juulz
+ */
+public class User implements java.io.Serializable{
+
+    /**
+     *
+     */
+//    public static final String GETUSERACCESS = null;
+    private String username = null;
+    private String firstName = null;
+    private String lastName = null;
+    private String emailAdress = null;
+    private String userAccess =null;
 
     /**
      * Constructor of the class.
@@ -27,6 +35,9 @@ public class User {
         this.emailAdress = emailAdress;
     }
 
+    /**
+     *
+     */
     public User() {
         
     }
@@ -96,10 +107,18 @@ public class User {
         this.emailAdress = emailAdress;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUserAccess() {
         return userAccess;
     }
 
+    /**
+     *
+     * @param userAccess
+     */
     public void setUserAccess(String userAccess) {
         this.userAccess = userAccess;
     }

@@ -18,6 +18,10 @@ import nl.project.jn.database.MysqlDatabaseConnector;
 import nl.project.jn.database.RetrieveMysqlData;
 import nl.project.jn.database.User;
 
+/**
+ *
+ * @author juulz
+ */
 public class AdminServlet extends HttpServlet {
 
     /**

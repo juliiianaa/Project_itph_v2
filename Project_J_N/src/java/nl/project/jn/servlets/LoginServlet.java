@@ -16,7 +16,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import nl.project.jn.database.*;
 
-
+/**
+ *
+ * @author juulz
+ */
 public class LoginServlet extends HttpServlet {
 
     
@@ -62,26 +65,38 @@ public class LoginServlet extends HttpServlet {
                 
                 System.out.println(user.getUserAccess());
                 
-                if(user.getUserAccess().equals("yes")){
+                if(user.getUserAccess().equals("yes")&&!user.getUserAccess().isEmpty()){
                     System.out.println("yaaayyy admin");
 //                    RequestDispatcher view = request.getRequestDispatcher("/AdminServlet");
 //                    view.forward(request, response);
                     
                     //Sends the generated script to the website page
-                    href = "/AdminServlet";
+                    href = "../AdminServlet";
                    
                 } else{
                 	 //Sends the generated script to the website page
-                	href = "/html/user.jsp";
+                	href = "../html/user.jsp";
                 	
                     
                 }
             }    
             
-            response.getWriter().print(href);
+//            request.setAttribute("user", user.getUsername()); 
+//            RequestDispatcher rd = getServletContext().getRequestDispatcher(href);  
+//            rd.forward(request, response);
             
-//            disconnects the database
+//            System.out.println(user.getUsername());
+
+            // disconnects the database
             MysqlDatabaseConnector.disconnectDB();
+            
+//            String data[] ={
+            
+            response.getWriter().print(user.getUsername());
+            
+            
+            
+
 
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);

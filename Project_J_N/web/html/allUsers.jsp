@@ -14,13 +14,13 @@
         <script type="text/javascript" charset="utf8" src="js/dataTables.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
         <link href="css/menu.css" rel="stylesheet">
-        <link href="css/book.css" rel="stylesheet">
+        <script src="js/nicescroll.js" type="text/javascript"></script>
          <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         
         <title>JSP Page</title>
     </head>
     
-        
+    <div>   
         <ul>
           <li><a class="active" href="../">Home</a></li>
           <li><a href="#">BookGame</a></li>
@@ -32,9 +32,21 @@
               <a href="#">Contact us</a>
             </div>
           </li>
+          <li><input type="submit" value="Log uit" name="logout" id="login" class="logoutButton"/></li>
         </ul>
-
-        
+    </div>
+    
+    <br />
+    
+<!--    <div id="">Push!</div>
+    <div>
+        Username : <input type="text">
+        First <input type="text">
+        <input type="text">
+    </div>-->
+    <!--<label> Hallo, ${sessionScope.user.username}</label>-->
+    
+    <div>
             <table id="user_table" class="display">
                 <thead>
                     <tr>
@@ -66,6 +78,6 @@
                     </tr>
                 </tfoot>
             </table>
-        
+    </div>    
     
 </html>
