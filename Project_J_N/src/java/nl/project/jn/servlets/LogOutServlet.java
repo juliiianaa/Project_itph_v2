@@ -37,7 +37,7 @@ public class LogOutServlet extends HttpServlet {
             //get the location of the current page.
             String location = request.getParameter("location");
             if (location == null) {
-                RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+                RequestDispatcher view = request.getRequestDispatcher("index.html");
                 view.forward(request, response);
             }
             //make a requestdispatcher element which communicates with the user
@@ -46,7 +46,7 @@ public class LogOutServlet extends HttpServlet {
         } else {
             //when the page is entered in the addressbar the user is redirected
             //to the index.
-            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("index.html");
             view.forward(request, response);
         }
     }
@@ -66,7 +66,7 @@ public class LogOutServlet extends HttpServlet {
         processRequest(request, response);
         // This is added to prevent that the doGet method is used to log in
         RequestDispatcher view = request.
-                getRequestDispatcher("index.jsp");
+                getRequestDispatcher("index.html");
         view.forward(request, response);
         //Make a requestdispatcher element which
         //communicates with the user

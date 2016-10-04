@@ -6,28 +6,27 @@ package nl.project.jn.database;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author juulz
- */
 public class UpdateMysqlTable extends MysqlDatabaseConnector{
+    
+   
+        public void UpdatePass(String username, String password) throws SQLException{
         
-    /**
-     *
-     * @param username
-     * @param name
-     * @param lastName
-     * @param email
-     * @param password
-     * @throws IOException
-     * @throws SQLException
-     */
-    public void RegisterUser(String username, String name, String lastName, String email, String password) 
+        String sqlStatement = "UPDATE users_information SET password=md5(?) WHERE username=?";
+        PreparedStatement ps = con.prepareStatement(sqlStatement);
+        ps.setString(1, password);
+        ps.setString(2, username);
+        
+        ps.executeUpdate();
+        
+        System.out.println(ps.toString());
+        
+        }
+        
+        public void RegisterUser(String username, String name, String lastName, String email, String password) 
                 throws IOException, SQLException {
-            
-            
             
         //SQL query for adding data to "users_information" table 
         String sqlStatement = "INSERT into users_information (username, name, lastName, email, password) VALUES (?, ?, ?, ?, md5(?));";
@@ -47,8 +46,8 @@ public class UpdateMysqlTable extends MysqlDatabaseConnector{
 
 //      executes the query
         ps.executeUpdate();
-                      
+        
     }
     
-    
+        
 }

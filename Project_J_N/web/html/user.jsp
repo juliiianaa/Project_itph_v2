@@ -4,19 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="../css/menu.css" rel="stylesheet" type="text/css"/>
 <title>Insert title here</title>
 </head>
 <body>
     
+   <jsp:include page="../includes/menu.jsp" /> 
    <jsp:include page="../includes/logout.jsp" /> 
-    <!--<a href="../includes/logout.jsp"></a>-->
     
-    <%--<jsp:useBean id="username" scope="nl.project.jn.database.User" typeSpec/>--%>
-        
-        
-    <%--</jsp:useBean   >--%>
-    
-    <!--<label> Hallo, ${requestScope.user.username}</label>-->
     
     <!--<input type="submit" value="Log uit" name="logout" id="login" class="logoutButton"/>-->   
 

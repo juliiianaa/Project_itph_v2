@@ -2,7 +2,7 @@
      * Uitleg class
      * @author: Juliana Goh & Negar Ahmadifard
      */
-package nl.project.jn.database;
+package nl.project.jn.servlets;
 
 /**
  *
@@ -13,7 +13,6 @@ public class User implements java.io.Serializable{
     /**
      *
      */
-//    public static final String GETUSERACCESS = null;
     private String username = null;
     private String firstName = null;
     private String lastName = null;

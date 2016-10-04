@@ -18,25 +18,10 @@
         <link href="../css/menu.css" rel="stylesheet" type="text/css"/>
         <link href="../css/main.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <div>   
-            <ul>
-              <li><a class="active" href="../">Home</a></li>
-              <li><a href="#">BookGame</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropbtn">Extra info</a>
-                <div class="dropdown-content">
-                  <a href="#">Help</a>
-                  <a href="#">FAQ</a>
-                  <a href="#">Contact us</a>
-                </div>
-              </li>
-            </ul>
+    <jsp:include page="../includes/menu.jsp" /> 
+        
+        <div>
+
         </div>
-        
-        <a href="../includes/logout.jsp"></a>
-        
-        <h1>Error, user not found</h1>
-        <h2>You will be directed back to the Register/Log-in page after five seconds</h2>
     </body>
 </html>

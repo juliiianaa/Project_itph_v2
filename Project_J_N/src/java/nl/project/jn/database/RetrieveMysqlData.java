@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import nl.project.jn.servlets.User;
 
 /**
  *
@@ -31,10 +32,12 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
      * @throws IOException
      * @throws SQLException
      */
-    public void LoginUser(String username, String password, User u) throws IOException, SQLException {
+    public User LoginUser(String username, String password) throws IOException, SQLException {
 
         //SQL query for retrieving data from "users_information" table to log in user
         String sqlStatement = "SELECT * FROM users_information WHERE username=? AND password=md5(?)";
+        
+        User u = new User();
         
         
        System.out.println(username + "," + password);
@@ -61,6 +64,7 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
             u.setUserAccess(rs.getString("userAccess"));
                 
         }
+        return u;
        
     }
     
@@ -95,5 +99,40 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
         return list;
       
     }
+    
+    public boolean CheckUser(String username) throws IOException, SQLException {
+    	boolean usernameExists = true;
+    	
+    	String sqlExist = "SELECT * FROM users_information WHERE username=?";    
+        
+        PreparedStatement sqlu = con.prepareStatement(sqlExist);
+
+        sqlu.setString(1, username);
+        
+        ResultSet rs = sqlu.executeQuery();
+        
+        if(!rs.next()) { 
+        	usernameExists = false;
+        } 
+        return usernameExists;
+
+    }
+
+	public boolean CheckEmail(String email) throws IOException, SQLException {
+    	boolean emailExists = true;
+    	
+    	String sqlExist = "SELECT * FROM users_information WHERE email=?";    
+        
+        PreparedStatement sqle = con.prepareStatement(sqlExist);
+
+        sqle.setString(1, email);
+        
+        ResultSet rs = sqle.executeQuery();
+        
+        if(!rs.next()) { 
+        	emailExists = false;
+        } 
+        return emailExists;
+	}
     
 }

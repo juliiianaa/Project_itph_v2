@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import nl.project.jn.database.MysqlDatabaseConnector;
 import nl.project.jn.database.RetrieveMysqlData;
-import nl.project.jn.database.User;
 
 /**
  *
@@ -56,10 +55,12 @@ public class AdminServlet extends HttpServlet {
             Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+//        Http
         
         
         
         request.setAttribute("usersList", users); 
+//        request.setAttribute("username", user); 
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/html/allUsers.jsp");  
         rd.forward(request, response);
         

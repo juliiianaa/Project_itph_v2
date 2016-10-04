@@ -39,14 +39,14 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        
+        
             try {
                 //        gets the parameter value given from AJAX
                 String username = request.getParameter("user");
                 String password = request.getParameter("passwordUser");
                 
                 System.out.println(username + " " + password);
-                
-                User user = new User();
                 
                 String href = null;
                 
@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
                     RetrieveMysqlData rd = new RetrieveMysqlData();
 
                 //                Sends the data to the LoginUser method in MysqlDatabaseConnector class to check if the user already is registrated
-                    rd.LoginUser(username, password, user);
+                    User user = rd.LoginUser(username, password);
 
                     System.out.println(user.getUserAccess());
                     
@@ -92,6 +92,10 @@ public class LoginServlet extends HttpServlet {
                     
                     }
                 }
+                
+//                request.setAttribute("dsad", href);
+//                RequestDispatcher view = new ;
+//                view.forward()
 
                 response.getWriter().print(href);
             } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException  ex) {

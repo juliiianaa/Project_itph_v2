@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Negar Ahmadifard">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="../css/form.css">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <!--java script that sends the data to servlet-->
+        <script src="../js/sendData.js"></script>
+
+</head>
+<body>
+
+<div class="form">
+      
+          <h1>Change Password</h1>
+          
+          <p class="header-mandatory">All fields are mandatory.</p>
+          
+          <form name="updateForm">
+          <!-- registration form --> 
+            <div class="field-wrap">
+              <label>
+                Username<span class="req"></span>
+              </label>
+              <input name="chusername" id="chusername" type="text" autocomplete="off" title="Optional field" required="required" />
+            </div>             
+          
+          <div class="field-wrap">
+            <label>
+              Set A New Password<span class="req"></span>
+            </label>
+            <input name="chpassword" id="chpassword" type="password" autocomplete="off" title="Mandatory field" required="required" />
+          </div>
+          
+           <div class="field-wrap">
+            <label>
+              Confirm Password<span class="req"></span>
+            </label>
+            <input name="conpassword" id="conpassword" type="password" autocomplete="off" title="Mandatory field" required="required" />
+          </div>
+          
+          <input type="button" class="button button-block" onClick="validateUpdateForm()" value="CHANGE PASSWORD">
+          
+          </form>
+
+        </div>
+         <!-- /form -->
+        <script src="../js/form.js"></script> 
+</body>
+</html>

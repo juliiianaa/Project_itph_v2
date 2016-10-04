@@ -5,6 +5,7 @@
  */
 package nl.project.jn.database;
 
+import nl.project.jn.servlets.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,9 +1,11 @@
+<%-- 
+    Document   : book
+    Created on : 4-okt-2016, 11:11:08
+    Author     : juulz
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -16,22 +18,9 @@ and open the template in the editor.
         <script src="../js/turn.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <jsp:include page="../includes/menu.jsp" /> 
         
-        
-    
-        <ul>
-          <li><a class="active" href="../">Home</a></li>
-          <li><a href="#">BookGame</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">Extra info</a>
-            <div class="dropdown-content">
-              <a href="#">Help</a>
-              <a href="#">FAQ</a>
-              <a href="#">Contact us</a>
-            </div>
-          </li>
-        </ul>
+        <jsp:include page="../includes/logout.jsp" /> 
         
        <div id="flipbook">
             <div class="hard"> Turn.js </div> 

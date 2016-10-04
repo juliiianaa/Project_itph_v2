@@ -20,21 +20,7 @@
         <title>JSP Page</title>
     </head>
     
-    <div>   
-        <ul>
-          <li><a class="active" href="../">Home</a></li>
-          <li><a href="#">BookGame</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">Extra info</a>
-            <div class="dropdown-content">
-              <a href="#">Help</a>
-              <a href="#">FAQ</a>
-              <a href="#">Contact us</a>
-            </div>
-          </li>
-          <li><input type="submit" value="Log uit" name="logout" id="login" class="logoutButton"/></li>
-        </ul>
-    </div>
+    <jsp:include page="../includes/menu.jsp" /> 
     
     <br />
     
@@ -44,7 +30,7 @@
         First <input type="text">
         <input type="text">
     </div>-->
-    <!--<label> Hallo, ${sessionScope.user.username}</label>-->
+    <label> Hallo, ${requestScope.username}</label>
     
     <div>
             <table id="user_table" class="display">
