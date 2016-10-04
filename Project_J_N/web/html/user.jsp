@@ -8,12 +8,15 @@
 </head>
 <body>
     
-    <jsp:useBean id="username" scope="nl.project.jn.database.User" typeSpec/>
-        
-        
-    </jsp:useBean>
+   <jsp:include page="../includes/logout.jsp" /> 
+    <!--<a href="../includes/logout.jsp"></a>-->
     
-    <label> Hallo, ${requestScope.user.username}</label>
+    <%--<jsp:useBean id="username" scope="nl.project.jn.database.User" typeSpec/>--%>
+        
+        
+    <%--</jsp:useBean   >--%>
+    
+    <!--<label> Hallo, ${requestScope.user.username}</label>-->
     
     <!--<input type="submit" value="Log uit" name="logout" id="login" class="logoutButton"/>-->   
 

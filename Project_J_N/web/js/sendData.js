@@ -13,41 +13,36 @@ function performAjaxSend() {
     var passwordLogin = document.getElementById("passwLogin").value;
     
     
-    alert(usernameLogin + ", " + passwordLogin);
+//    alert(usernameLogin + ", " + passwordLogin);
 
-//    Ajax call, where the parameters are send to the Servlet
-//    $.ajax({
-//        type: "POST",
-//        url: '../LoginServlet',
-//        cache: false,
-//        contentType: false,
-//        dataType: "text",
-//        data: {
-//            user:usernameLogin,
-//            passwordUser:passwordLogin
-//        },
-//        success: function (data) {
-//            alert('yay');
-//        }
-//    });
-    
     $.ajax({
         url:'../LoginServlet',
         data:{user:usernameLogin, passwordUser:passwordLogin},
         type:'POST',
         cache:false,
         success:function(data){
-           alert(data);
-           
-           
-//           window.location.replace(data);
+           if(data === "yes"){
+               alert(data);
+                window.location.replace("../AdminServlet");
+           }if( data === "no"){
+                window.location.replace("../html/user.jsp");
+           }else{
+               window.location.replace("../html/error.jsp");
+               setTimeout(function(){
+//                alert("hoi");
+                window.location.reload("../html/form.html");
+            }, 5000);
+               
+//               window.location.replace("../html/error.jsp");
+           }
         },
         error:function(result){
-        	alert("er gaat alsnog iets mis");
-        	alert(result.status + ' ' + result.statusText);
+        	alert("user niet gevonden");
+//        	alert(result.status + ' ' + result.statusText);
         }
-     }
-);
+    });
+
+    
 
 }
 

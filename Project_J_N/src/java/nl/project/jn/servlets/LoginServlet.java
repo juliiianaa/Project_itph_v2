@@ -6,7 +6,6 @@
  * @author Juliana Goh & Negar Ahmadifard
  */
 
-
 package nl.project.jn.servlets;
 
 import java.io.IOException;
@@ -24,9 +23,9 @@ public class LoginServlet extends HttpServlet {
 
     
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    * 
+    */
+   private static final long serialVersionUID = 1L;
 
 	/**
      * Handles the HTTP <code>POST</code> method.
@@ -40,67 +39,65 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-//        gets the parameter value given from AJAX
-        String username = request.getParameter("user");
-        String password = request.getParameter("passwordUser");
-        
-        System.out.println(username + " " + password);
-
-        User user = new User();
-        
-        String href = null;
-
-        try{
-//            connects with the database
-            MysqlDatabaseConnector.connectDB();
-
-//            If username and password is not empty, check users Login
-            if (username!=null&&password!=null) {
+            try {
+                //        gets the parameter value given from AJAX
+                String username = request.getParameter("user");
+                String password = request.getParameter("passwordUser");
+                
                 System.out.println(username + " " + password);
                 
-                RetrieveMysqlData rd = new RetrieveMysqlData();
+                User user = new User();
                 
-//                Sends the data to the LoginUser method in MysqlDatabaseConnector class to check if the user already is registrated
-                rd.LoginUser(username, password, user);
+                String href = null;
                 
-                System.out.println(user.getUserAccess());
                 
-                if(user.getUserAccess().equals("yes")&&!user.getUserAccess().isEmpty()){
-                    System.out.println("yaaayyy admin");
-//                    RequestDispatcher view = request.getRequestDispatcher("/AdminServlet");
-//                    view.forward(request, response);
+                //            connects with the database
+                MysqlDatabaseConnector.connectDB();
+
+                //            If username and password is not empty, check users Login
+                if (username!=null&&password!=null) {
+                    System.out.println(username + " " + password);
+
+                    RetrieveMysqlData rd = new RetrieveMysqlData();
+
+                //                Sends the data to the LoginUser method in MysqlDatabaseConnector class to check if the user already is registrated
+                    rd.LoginUser(username, password, user);
+
+                    System.out.println(user.getUserAccess());
                     
+                    if(user.getUserAccess()== null){
+                           href = "error";
+                    
+                    }else{
+
+
+                        if(user.getUserAccess().equals("yes")){
+                            System.out.println("yaaayyy admin");
+                    //                    RequestDispatcher view = request.getRequestDispatcher("/AdminServlet");
+                    //                    view.forward(request, response);
+
                     //Sends the generated script to the website page
-                    href = "../AdminServlet";
-                   
-                } else{
-                	 //Sends the generated script to the website page
-                	href = "../html/user.jsp";
-                	
+                    //                    href = "../AdminServlet";
+                            href = user.getUserAccess();
+
+                        } else{
+                            System.out.println("user");
+                            //Sends the generated script to the website page
+                        //                	href = "../html/user.jsp";
+                            href = user.getUserAccess();
+                        }
+
+                        // disconnects the database
+                        MysqlDatabaseConnector.disconnectDB();
                     
+                    }
                 }
-            }    
-            
-//            request.setAttribute("user", user.getUsername()); 
-//            RequestDispatcher rd = getServletContext().getRequestDispatcher(href);  
-//            rd.forward(request, response);
-            
-//            System.out.println(user.getUsername());
 
-            // disconnects the database
-            MysqlDatabaseConnector.disconnectDB();
+                response.getWriter().print(href);
+            } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException  ex) {
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-//            String data[] ={
-            
-            response.getWriter().print(user.getUsername());
-            
-            
-            
-
-
-        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
 }

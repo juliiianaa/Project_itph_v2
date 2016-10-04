@@ -17,7 +17,7 @@ public class User implements java.io.Serializable{
     private String username = null;
     private String firstName = null;
     private String lastName = null;
-    private String emailAdress = null;
+    private String emailAddress = null;
     private String userAccess =null;
 
     /**
@@ -32,7 +32,7 @@ public class User implements java.io.Serializable{
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.emailAdress = emailAdress;
+        this.emailAddress = emailAdress;
     }
 
     /**
@@ -95,16 +95,16 @@ public class User implements java.io.Serializable{
      * Getter for emailadress.
      * @return
      */
-    final public String getEmailAdress() {
-        return emailAdress;
+    final public String getEmailAddress() {
+        return emailAddress;
     }
 
     /**
      * Setter for emailadress.
      * @param emailAdress
      */
-    final public void setEmailAdress(String emailAdress) {
-        this.emailAdress = emailAdress;
+    final public void setEmailAddress(String emailAdress) {
+        this.emailAddress = emailAdress;
     }
 
     /**

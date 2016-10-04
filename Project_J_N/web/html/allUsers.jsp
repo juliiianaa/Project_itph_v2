@@ -63,7 +63,7 @@
                             <td>${user.firstName }</td>
                             <td>${user.lastName }</td>
                             <td>${user.username }</td>
-                            <td>${user.emailAdress }</td>
+                            <td>${user.emailAddress }</td>
                             <td>${user.userAccess }</td>
                         </tr>
                     </c:forEach>

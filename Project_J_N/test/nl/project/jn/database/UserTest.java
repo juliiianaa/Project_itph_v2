@@ -18,21 +18,36 @@ import static org.junit.Assert.*;
  */
 public class UserTest {
     
+    /**
+     *
+     */
     public UserTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
@@ -122,11 +137,11 @@ public class UserTest {
      * Test of getEmailAdress method, of class User.
      */
     @Test
-    public void testGetEmailAdress() {
+    public void testGetEmailAddress() {
         System.out.println("getEmailAdress");
         User instance = new User();
         String expResult = "";
-        String result = instance.getEmailAdress();
+        String result = instance.getEmailAddress();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -136,11 +151,11 @@ public class UserTest {
      * Test of setEmailAdress method, of class User.
      */
     @Test
-    public void testSetEmailAdress() {
+    public void testSetEmailAddress() {
         System.out.println("setEmailAdress");
         String emailAdress = "";
         User instance = new User();
-        instance.setEmailAdress(emailAdress);
+        instance.setEmailAddress(emailAdress);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

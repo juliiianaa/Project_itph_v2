@@ -13,29 +13,6 @@ import java.sql.SQLException;
  * @author juulz
  */
 public class UpdateMysqlTable extends MysqlDatabaseConnector{
-    
-    /**
-     *
-     * @param username
-     * @throws SQLException
-     */
-    public void updateForgetPss(String username) throws SQLException{
-        
-        System.out.println("Moet nog");
-        
-        //SQL query for retrieving data from "users_information" table to log in user
-//        String sqlStatement = "SELECT * FROM users_information where username='" + username + "';";
-//        Statement stm=(Statement) con.createStatement();
-////        executes the query
-//        ResultSet rs = stm.executeQuery(sqlStatement);
-//        
-//        String access = null;
-//        
-//        while (rs.next()) {
-//
-//           access = rs.getString("userAccess");
-//        }
-    }
         
     /**
      *

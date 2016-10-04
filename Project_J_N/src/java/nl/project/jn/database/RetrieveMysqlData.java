@@ -57,7 +57,7 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
             u.setUsername(rs.getString("username"));
             u.setFirstName(rs.getString("name"));
             u.setLastName(rs.getString("lastName"));
-            u.setEmailAdress(rs.getString("email"));
+            u.setEmailAddress(rs.getString("email"));
             u.setUserAccess(rs.getString("userAccess"));
                 
         }
@@ -85,7 +85,7 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
             u.setUsername(rs.getString("username"));
             u.setFirstName(rs.getString("name"));
             u.setLastName(rs.getString("lastName"));
-            u.setEmailAdress(rs.getString("email"));
+            u.setEmailAddress(rs.getString("email"));
             u.setUserAccess(rs.getString("userAccess"));
             
             list.add(u);
