@@ -1,11 +1,3 @@
-/**
- *
- * Uitleg Class
- * 
- * 
- * @author Juliana Goh & Negar Ahmadifard
- */
-
 package nl.project.jn.servlets;
 
 import java.io.IOException;
@@ -22,15 +14,16 @@ import nl.project.jn.database.UpdateMysqlTable;
 
 
 /**
- * @author: Negar
+ * This servlet is called when an user wants to wants to change his/her password. 
+ * Ajax sends the username's given values to the Servlet, which in turn sends the values to the dababase.
+ * This class contains the method doPost().
+ * @author: Julia Goh & Negar Ahmadifard
  */
-
 public class ChangePassServlet extends HttpServlet {
+  
+    private static final long serialVersionUID = 1L;
 
-   
-	private static final long serialVersionUID = 1L;
-
-	/**
+    /**
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -42,20 +35,24 @@ public class ChangePassServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-//        gets the parameter value given from AJAX
+        // Gets the parameter values which are send by AJAX
         String username = request.getParameter("user");    
         String password = request.getParameter("password");
         
+        // String, which contains the url for the redirected webpage.
         String href = null;
         
         System.out.println(username + " " + password);
         
         try{
-//          connects with the database
+            // Connecting with the database.
             MysqlDatabaseConnector.connectDB();
+            
+            // Checks whether the fields username and password aren't null or empty.
+            // When these two fields aren't empty, data will be send to the database and the user will get redirected to the changepass.jsp page.
+            // When a field is empty or null, data won't be send to the database and the user gets redirected to the error.jsp page.
             if(username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
- //           if (username.equals(null)&&password.equals(null)||username.equals("")&&password.equals("")) {
-            	
+
             	UpdateMysqlTable ch = new UpdateMysqlTable();
             
             	ch.UpdatePass(username, password);
@@ -70,17 +67,13 @@ public class ChangePassServlet extends HttpServlet {
             }
         	
             response.getWriter().write(href);
-            
-
-            
 
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(ChangePassServlet.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-//        	disconnects the database
+            // Disconnects the database.
             MysqlDatabaseConnector.disconnectDB();    
-            System.out.println("Database disconnected");
+            System.out.println("Database disconnected.");
         }
     }
-
 }
