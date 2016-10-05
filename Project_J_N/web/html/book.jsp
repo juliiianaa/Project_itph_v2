@@ -13,14 +13,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/menu.css" rel="stylesheet">
         <link href="../css/book.css" rel="stylesheet">
-        <script src="js/jquery.js"></script>
+        <script src="../js/jquery.js"></script>
         <script src="../js/turnPages.js"></script>
         <script src="../js/turn.js"></script>
     </head>
     <body>
         <jsp:include page="../includes/menu.jsp" /> 
-        
-        <jsp:include page="../includes/logout.jsp" /> 
         
        <div id="flipbook">
             <div class="hard"> Turn.js </div> 

@@ -1,7 +1,3 @@
- /**
-     * Uitleg class
-     * @author: Juliana Goh & Negar Ahmadifard
-     */
 package nl.project.jn.servlets;
 
 import java.io.IOException;
@@ -18,17 +14,17 @@ import nl.project.jn.database.MysqlDatabaseConnector;
 import nl.project.jn.database.RetrieveMysqlData;
 
 /**
+ * This class will be used for when an admin has logged in. 
+ * This class will retrieve all the data of every user in the database and will send it to the frontend
  *
- * @author juulz
+ * @author Juliana Goh & Negar Ahmadifard
  */
 public class AdminServlet extends HttpServlet {
 
+    //A version control in a Serializable class
+   private static final long serialVersionUID = 1L;
+   
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	/**
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -40,31 +36,25 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //Empty list which only accept User objects
         List<User> users = null; 
         
         try {
-//            connects with the database
+            //connects with the database
             MysqlDatabaseConnector.connectDB();
-            
-       
-           users = RetrieveMysqlData.getAllUser();
-           
-           MysqlDatabaseConnector.disconnectDB();
+            //Saves the given user object to the List<User>
+            users = RetrieveMysqlData.getAllUser();
+            //disconnect with database
+            MysqlDatabaseConnector.disconnectDB();
             
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-//        Http
-        
-        
-        
-        request.setAttribute("usersList", users); 
-//        request.setAttribute("username", user); 
+        //Sets users to variable usersList and sends it to server
+        request.setAttribute("usersList", users);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/html/allUsers.jsp");  
         rd.forward(request, response);
         
-        
     }
-
 }

@@ -1,33 +1,26 @@
-/**
- *
- * Class which is used for anything that has to do with the database
- * Make connection, retrieve data from the database, disconnects the database when needed
- * 
- * @author Juliana Goh & Negar Ahmadifard
- */
-
 package nl.project.jn.database;
 
 import java.io.IOException;
 import java.sql.*;
 
 /**
- *
- * @author juulz
+ * This class will be called when a connection or disconnection with the database needs to be made. 
+ * 
+ * @author Juliana Goh & Negar Ahmadifard
  */
 public class MysqlDatabaseConnector {
     
+    //The needed information to access the database 
     private final static String USERDB = "root";
     private final static String USERPW = "java2016" ;
+    //format for a JDBC url for connecting with the MYSQL server by: host:port/database
+    private final static String URL ="jdbc:mysql://localhost:3306/test";
 
-    /**
-     *
-     */
+    //protected class variable where the connection can only be made from the class
     protected static Connection con;
     
     /**
-     *
-     * connectDB, makes a connection with the database with the help of the url, user and password
+     * This class will be called to make a connection with the database.
      * 
      * @throws SQLException
      * @throws ClassNotFoundException
@@ -35,22 +28,22 @@ public class MysqlDatabaseConnector {
      * @throws IllegalAccessException
      */
     public static void connectDB()throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessException {
-        String url="jdbc:mysql://localhost:3306/test";
-        
+        //Class that implements the java.sql.Driver. Used when registering the driver or when configuring a software to use MySQL Connector/J
         Class.forName ("com.mysql.jdbc.Driver").newInstance ();
-        con = DriverManager.getConnection(url,USERDB, USERPW);
         
+        //Connection with the MySQL server 
+        con = DriverManager.getConnection(URL,USERDB, USERPW);
+        
+        //Connection failed if null
         if(con==null)   {
             System.out.println("connection failed");
         }
         
     }
 
- 
-
     /**
      *
-     * disconnectDB, stops the connection of the database
+     * This class will be called to disconnect the database
      * 
      * @throws IOException
      */
@@ -59,7 +52,6 @@ public class MysqlDatabaseConnector {
 	    //close the connection
             con.close();
         } catch (SQLException ex) {
-            
             System.out.println("SQL EXCEPTION message: " + ex);
         }
     }

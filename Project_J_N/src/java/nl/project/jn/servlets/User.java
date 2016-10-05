@@ -1,18 +1,12 @@
- /**
-     * Uitleg class
-     * @author: Juliana Goh & Negar Ahmadifard
-     */
 package nl.project.jn.servlets;
 
 /**
+ * This class will be used for making a User object
  *
- * @author juulz
+ * @author Juliana Goh & Negar Ahmadifard
  */
 public class User implements java.io.Serializable{
-
-    /**
-     *
-     */
+    
     private String username = null;
     private String firstName = null;
     private String lastName = null;
@@ -35,7 +29,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     *
+     * Empty Constructor of the class
      */
     public User() {
         
@@ -59,7 +53,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     * Getter for firstname.
+     * Getter for first name.
      * @return firstName
      */
     final public String getFirstName() {
@@ -67,7 +61,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     * Setter for firstname.
+     * Setter for first name.
      * @param firstName
      */
     final public void setFirstName(String firstName) {
@@ -75,7 +69,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     * Getter for lastname.
+     * Getter for last name.
      * @return lastName
      */
     final public String getLastName() {
@@ -83,7 +77,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     * Setter for lastname.
+     * Setter for last name.
      * @param lastName
      */
     final public void setLastName(String lastName) {
@@ -91,7 +85,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     * Getter for emailadress.
+     * Getter for email address.
      * @return
      */
     final public String getEmailAddress() {
@@ -99,7 +93,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     * Setter for emailadress.
+     * Setter for email address.
      * @param emailAdress
      */
     final public void setEmailAddress(String emailAdress) {
@@ -107,7 +101,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     *
+     * getter for user access
      * @return
      */
     public String getUserAccess() {
@@ -115,7 +109,7 @@ public class User implements java.io.Serializable{
     }
 
     /**
-     *
+     * setter for user access
      * @param userAccess
      */
     public void setUserAccess(String userAccess) {
