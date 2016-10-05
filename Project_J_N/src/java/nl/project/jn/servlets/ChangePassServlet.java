@@ -15,12 +15,14 @@ import nl.project.jn.database.UpdateMysqlTable;
 
 /**
  * This servlet is called when an user wants to wants to change his/her password. 
- * Ajax sends the username's given values to the Servlet, which in turn sends the values to the dababase.
+ * Ajax sends the username's given values to the Servlet, which in turn sends the values to the database.
  * This class contains the method doPost().
+ * 
  * @author: Julia Goh & Negar Ahmadifard
  */
 public class ChangePassServlet extends HttpServlet {
-  
+    
+    //A version control in a Serializable class
     private static final long serialVersionUID = 1L;
 
     /**
@@ -40,7 +42,7 @@ public class ChangePassServlet extends HttpServlet {
         String password = request.getParameter("password");
         
         // String, which contains the url for the redirected webpage.
-        String href = null;
+        String href;
         
         System.out.println(username + " " + password);
         
@@ -48,21 +50,18 @@ public class ChangePassServlet extends HttpServlet {
             // Connecting with the database.
             MysqlDatabaseConnector.connectDB();
             
-            // Checks whether the fields username and password aren't null or empty.
-            // When these two fields aren't empty, data will be send to the database and the user will get redirected to the changepass.jsp page.
-            // When a field is empty or null, data won't be send to the database and the user gets redirected to the error.jsp page.
+            /* 
+            * Checks whether the fields username and password aren't null or empty.
+            * When these two fields aren't empty, data will be send to the database and the user will get redirected to the changepass.jsp page.
+            * When a field is empty or null, data won't be send to the database and the user gets redirected to the error.jsp page.
+            */
             if(username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
-
             	UpdateMysqlTable ch = new UpdateMysqlTable();
-            
+                //Sends the data to the method to update the password with the given username
             	ch.UpdatePass(username, password);
-
-            	System.out.println("Password updated");
-            	
             	href="/html/changepass.jsp";
 
             } else{
-            	
             	href="/html/error.jsp";
             }
         	
@@ -73,7 +72,6 @@ public class ChangePassServlet extends HttpServlet {
         } finally {
             // Disconnects the database.
             MysqlDatabaseConnector.disconnectDB();    
-            System.out.println("Database disconnected.");
         }
     }
 }
